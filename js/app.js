@@ -20,6 +20,8 @@ const CONFIG = {
 
 // Gallery photos: images/img1.jpeg ... img12.jpeg  (change captions freely)
 const PHOTOS = [
+  'Facecard','Trip','Smily Face','Constant Pose','Celebrations','Sunshine',
+  'Food crimes','Mirror Selfie','Saree Love','Quiet moments','Silly faces','Traditional Love'
 ].map((cap, i) => ({ n: i + 1, cap }));
 
 // Memories app: each card uses one of the images
