@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Sunflower OS — a personal birthday experience.">
+  <meta name="theme-color" content="#10140f">
+  <title>Sunflower OS 🌻</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌻%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- fonts load in the background; the site works instantly even offline -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <noscript><p style="padding:40px;font-family:sans-serif">Sunflower OS needs JavaScript enabled to run.</p></noscript>
+
+  <!-- BOOT -->
+  <div id="bootScreen" class="boot-screen">
+    <div class="boot-glow"></div>
+    <div class="boot-flower" aria-hidden="true"></div>
+    <div class="boot-content">
+      <div class="eyebrow">PERSONAL EDITION ·05.10</div>
+      <h1>SUNFLOWER <span>OS</span></h1>
+      <p id="bootStatus">Preparing something special…</p>
+      <div class="boot-progress"><i id="bootProgress"></i></div>
+      <button id="enterSystem" class="primary-btn" disabled>Enter System</button>
+    </div>
+  </div>
+
+  <!-- DESKTOP -->
+  <main id="desktop" class="desktop hidden">
+    <div class="wallpaper-glow"></div>
+    <div class="petals" id="petals" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand"><span class="mini-sun">🌻</span> Sunflower OS</div>
+      <div class="system-status">
+        <span id="missionStatus">Mission 0/4</span><span class="dot"></span>
+        <span id="clock">12:00 PM</span><span class="battery">🔋 100%</span>
+      </div>
+    </header>
+
+    <section class="desktop-area" id="desktopArea">
+      <div class="desktop-icons" id="desktopIcons"></div>
+
+      <div class="welcome-widget glass-card">
+        <div class="widget-avatar ph"><img id="avatarImg" src="images/img1.jpeg" alt="" decoding="async"></div>
+        <div>
+          <span class="eyebrow">WELCOME HOME</span>
+          <h2>Hey, <span class="sisterName">Juu</span>.</h2>
+          <p>Someone built a tiny world just for you. Explore it slowly.</p>
+        </div>
+      </div>
+
+      <div class="terminal-widget" id="terminalWidget">
+        <div class="terminal-head"><span></span><span></span><span></span><b>sunflower@os ~</b></div>
+        <div class="terminal-mount" id="terminalWidgetBody"></div>
+      </div>
+    </section>
+
+    <div id="windowLayer"></div>
+
+    <footer class="dock-wrap">
+      <nav class="dock glass-card" id="dock" aria-label="Dock"></nav>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <figure class="lb-fig">
+      <div class="lb-img ph"><img id="lbImg" alt="" decoding="async"></div>
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+  </div>
+
+  <!-- FINAL CELEBRATION -->
+  <div id="celebration" class="celebration hidden" role="dialog" aria-modal="true" aria-label="Birthday finale">
+    <canvas id="confetti"></canvas>
+    <div class="final-flower" aria-hidden="true"></div>
+    <div class="polaroids" id="polaroids" aria-hidden="true"></div>
+    <div class="celebration-copy">
+      <div class="eyebrow">BIRTHDAY_FINAL.EXE</div>
+      <h1>Happy Birthday,<br><em class="sisterName">Juu</em> 🌻</h1>
+      <p id="finalMessage" class="final-message"></p>
+      <div class="final-actions">
+        <button class="primary-btn" id="closeCelebration">Return to Sunflower OS</button>
+        <button class="ghost-btn" id="replayCelebration">↻ Replay</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
